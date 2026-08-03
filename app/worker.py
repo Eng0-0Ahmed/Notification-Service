@@ -3,7 +3,7 @@ import json
 import logging
 from pydantic import ValidationError
 import redis.asyncio as aioredis
-
+from redis.exceptions import TimeoutError as RedisTimeoutError
 from app.config import settings
 from app.schemas import NotificationPayload
 from app.services.email import send_notification_email
@@ -35,7 +35,8 @@ async def run_worker():
 
             await send_notification_email(validated_payload)
             logger.info(f"Successfully processed email for {validated_payload.email}")
-
+        except (RedisTimeoutError, TimeoutError):
+            continue
         except json.JSONDecodeError as e:
             logger.error(f"Failed to parse invalid JSON from Redis: {e}")
 

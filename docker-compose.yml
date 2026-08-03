@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  worker:
+    build: .
+    container_name: notification_worker
+    restart: always
+    environment:
+      - REDIS_HOST=host.docker.internal  
+      - REDIS_PORT=6379
+      - REDIS_QUEUE_NAME=notifications
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
