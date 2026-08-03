@@ -7,6 +7,9 @@ class EventType(str, Enum):
     USER_REGISTRATION = "USER_REGISTRATION_EMAIL"
     PASSWORD_RESET = "PASSWORD_RESET_EMAIL"
     TICKET_PURCHASED = "TICKET_PURCHASED"
+    EVENT_REMINDER = "EVENT_REMINDER_24H"
+    PROMO_REMAINING_TICKETS = "PROMO_REMAINING_TICKETS"
+    EVENT_CREATE_REMINDER = "EVENT_CREATED_EMAIL"
 
 class NotificationPayload(BaseModel):
     event_type: EventType
@@ -16,3 +19,9 @@ class NotificationPayload(BaseModel):
     ticket_uuid: Optional[str] = None
     event_id: Optional[str] = None
     qr_code_url: Optional[str] = None
+    event_title:  Optional[str] = None
+    event_uuid: Optional[str] = None
+    ticket_tier: Optional[str] = None
+    event_date: Optional[str] = None
+    name: Optional[str] = None
+    remaining_tickets: Optional[str] = None
