@@ -1,6 +1,10 @@
 import pytest
 from pydantic import ValidationError
 from app.schemas import EventType, NotificationPayload
+from unittest.mock import AsyncMock, patch
+import pytest
+from app.schemas import EventType, NotificationPayload
+from app.services.email import send_notification_email
 
 def test_valid_notification_payload():
     data = {
@@ -36,11 +40,6 @@ def test_missing_required_fields_raises_validation_error():
         NotificationPayload(**data)
 
 
-
-from unittest.mock import AsyncMock, patch
-import pytest
-from app.schemas import EventType, NotificationPayload
-from app.services.email import send_notification_email
 
 
 @pytest.mark.asyncio
