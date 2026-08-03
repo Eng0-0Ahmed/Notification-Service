@@ -6,8 +6,8 @@ services:
     container_name: notification_worker
     restart: always
     environment:
-      - REDIS_HOST=host.docker.internal  
-      - REDIS_PORT=6379
-      - REDIS_QUEUE_NAME=notifications
+      - REDIS_HOST=${REDIS_HOST:-host.docker.internal} 
+      - REDIS_PORT=${REDIS_PORT:-6379}
+      - REDIS_QUEUE_NAME=${REDIS_QUEUE_NAME:-notifications}
     extra_hosts:
       - "host.docker.internal:host-gateway"
