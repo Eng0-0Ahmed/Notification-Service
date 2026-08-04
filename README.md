@@ -54,7 +54,7 @@ aiosmtplib · Docker
 ```bash
 git clone <repo-url>
 cd notification_service
-cp .env.example .env   # fill in your SMTP + Redis details
+cp .env.example .env   
 docker compose up --build
 ```
 
