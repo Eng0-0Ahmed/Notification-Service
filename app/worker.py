@@ -45,7 +45,7 @@ async def run_worker():
         except ValidationError as e:
             logger.error(f"Payload validation failed! Bad payload data: {e}")
 
-        except Exception as e:
+        except Exception as e:  #noqa: BLE001 — worker should log and keep polling, not crash
             logger.error(f"Unexpected error while processing job: {e}")
 
 
