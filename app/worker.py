@@ -15,8 +15,9 @@ logger = logging.getLogger(__name__)
 
 
 async def run_worker():
+    redis_url = settings.REDIS_URL or f"redis://{settings.REDIS_HOST}:{settings.REDIS_PORT}"
     redis_client = aioredis.from_url(
-        f"redis://{settings.REDIS_HOST}:{settings.REDIS_PORT}",
+        redis_url,
         decode_responses=True,
     )
 
