@@ -1,5 +1,7 @@
 from email.message import EmailMessage
+
 import aiosmtplib
+
 from app.config import settings
 from app.schemas import EventType, NotificationPayload
 
