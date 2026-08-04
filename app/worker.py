@@ -48,6 +48,7 @@ async def run_worker():
 
         except Exception as e:  #noqa: BLE001 — worker should log and keep polling, not crash
             logger.error(f"Unexpected error while processing job: {e}")
+            await asyncio.sleep(5)
 
 
 if __name__ == "__main__":
