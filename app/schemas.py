@@ -14,14 +14,14 @@ class EventType(str, Enum):
 class NotificationPayload(BaseModel):
     event_type: EventType
     email: EmailStr
-    user_id: Optional[str] = None
-    token_id: Optional[str] = None
-    ticket_uuid: Optional[str] = None
-    event_id: Optional[str] = None
-    qr_code_url: Optional[str] = None
-    event_title:  Optional[str] = None
-    event_uuid: Optional[str] = None
-    ticket_tier: Optional[str] = None
-    event_date: Optional[str] = None
-    name: Optional[str] = None
-    remaining_tickets: Optional[str] = None
+    user_id: str | None = None
+    token_id: str | None = None
+    ticket_uuid: str | None = None
+    event_id: str | None = None
+    qr_code_url: str | None = None
+    event_title: str | None = None
+    event_uuid: str | None = None
+    ticket_tier: str | None = None
+    event_date: str | None = None
+    name: str | None = None
+    remaining_tickets: str | None = None

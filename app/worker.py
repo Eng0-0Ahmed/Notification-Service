@@ -1,9 +1,11 @@
 import asyncio
 import json
 import logging
-from pydantic import ValidationError
+
 import redis.asyncio as aioredis
+from pydantic import ValidationError
 from redis.exceptions import TimeoutError as RedisTimeoutError
+
 from app.config import settings
 from app.schemas import NotificationPayload
 from app.services.email import send_notification_email
@@ -27,7 +29,7 @@ async def run_worker():
             if result is None:
                 continue
 
-            queue_name, raw_message = result
+            _, raw_message = result
 
             payload_dict = json.loads(raw_message)
 
