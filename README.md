@@ -2,7 +2,7 @@
 
 A small async worker that listens on a Redis queue and turns ticketing
 events into emails. It exists for one reason: the main [Ticketing
-API](#) should never have to wait on an SMTP server to finish a request.
+API](https://github.com/Eng0-0Ahmed/Multi-Vendor-Event-Ticketing-Reservation-API) should never have to wait on an SMTP server to finish a request.
 
 ## Why this is a separate service
 
